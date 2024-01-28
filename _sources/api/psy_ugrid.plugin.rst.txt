@@ -1,0 +1,4 @@
+.. automodule:: psy_ugrid.plugin
+   :members:
+   :undoc-members:
+   :show-inheritance:

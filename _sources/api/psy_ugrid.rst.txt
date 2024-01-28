@@ -1,0 +1,16 @@
+psy\_ugrid package
+==================
+
+.. automodule:: psy_ugrid
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   psy_ugrid.plotters
+   psy_ugrid.plugin

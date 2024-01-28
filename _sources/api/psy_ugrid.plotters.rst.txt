@@ -1,0 +1,4 @@
+.. automodule:: psy_ugrid.plotters
+   :members:
+   :undoc-members:
+   :show-inheritance:
