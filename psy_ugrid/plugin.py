@@ -22,10 +22,15 @@ be imported when psyplot is imported. What is should contain is:
         import psyplot
         import psy_ugrid.plugin
 """
+from __future__ import annotations
 
+from typing import Any, Dict
+
+import psyplot.data as psyd
 from psyplot.config.rcsetup import RcParams
 
 from psy_ugrid import __version__ as plugin_version
+from psy_ugrid.decoder import UGridDecoder
 
 
 def get_versions(requirements=True):
@@ -70,33 +75,13 @@ def get_versions(requirements=True):
 # Example::
 #
 #     defaultParams = {'my.key': [True, bool, 'What my key does']}
-defaultParams = {
-    # key for defining new plotters
-    "project.plotters": [
-        {
-            "plot_method_identifer": {
-                "module": "psy_ugrid.plotters",
-                "plotter_name": "MyPlotter",  # or any other name
-                # any other item for the :func:`psyplot.project.register_plotter`
-                # function
-                # 'plot_func': False,
-                # 'prefer_list': True,
-                # ...
-            },
-        },
-        dict,
-        "The plot methods in the psy-ugrid package",
-    ],
-    # if you define new plotters, we recommend to assign a specific rcParams
-    # key for it, e.g.::
-    #
-    #     {
-    #         'plotter.psy_ugrid.my_fmt': [1, int, ' the value for my_fmt']
-    #     }
-}
+defaultParams: Dict[str, Any] = {}
 
 # create the rcParams and populate them with the defaultParams. For more
 # information on this class, see the :class:`psyplot.config.rcsetup.RcParams`
 # class
 rcParams = RcParams(defaultParams=defaultParams)
 rcParams.update_from_defaultParams()
+
+
+psyd.CFDecoder.register_decoder(UGridDecoder)
