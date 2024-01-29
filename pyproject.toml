@@ -4,7 +4,7 @@
 
 [build-system]
 build-backend = 'setuptools.build_meta'
-requires = ['setuptools >= 61.0', 'versioneer[toml]']
+requires = ['setuptools >= 61.0', 'versioneer[toml]', 'Cython']
 
 [project]
 name = "psy-ugrid"
@@ -52,6 +52,7 @@ requires-python = '>= 3.9'
 dependencies = [
     "psyplot",
     # add your dependencies here
+    "scipy",
 ]
 
 [project.urls]
@@ -89,6 +90,7 @@ dev = [
     "psy-ugrid[docs]",
     "PyYAML",
     "types-PyYAML",
+    "Cython",
 ]
 
 
@@ -100,7 +102,7 @@ zip-safe = false
 license-files = ["LICENSES/*"]
 
 [tool.setuptools.package-data]
-psy_ugrid = ["py.typed"]
+psy_ugrid = []
 
 [tool.setuptools.packages.find]
 namespaces = false

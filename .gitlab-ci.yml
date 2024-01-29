@@ -12,21 +12,28 @@ cache:
     - .cache/pip
 
 before_script:
-  # replace git internal paths in order to use the CI_JOB_TOKEN
-  - apt-get update -y && apt-get install -y pandoc graphviz
   - python -m pip install -U pip
 
-test-package:
-  stage: test
+build-package:
+  stage: build
   script:
     - pip install build twine
-    - make dist
+    - USE_CYTHON=true make dist
     - twine check dist/*
   artifacts:
     name: python-artifacts
     paths:
       - "dist/*"
+      - "psy_ugrid/*.c"
     expire_in: 7 days
+
+test-package:
+  stage: test
+  script:
+    - pip install twine
+    - twine check dist/*
+  needs:
+    - build-package
 
 test:
   stage: test
@@ -46,6 +53,8 @@ test:
       - "ci/matrix/${SCENARIO}/*"
     expire_in: 30 days
   coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
+  needs:
+    - build-package
 
 test-docs:
   stage: test
@@ -56,11 +65,14 @@ test-docs:
   artifacts:
     paths:
     - docs/_build
+  needs:
+    - build-package
 
 
 deploy-package:
   stage: deploy
   needs:
+    - build-package
     - test-package
     - test-docs
     - test
