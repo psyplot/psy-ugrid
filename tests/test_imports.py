@@ -8,3 +8,4 @@
 def test_package_import():
     """Test the import of the main package."""
     import psy_ugrid  # noqa: F401
+    import psy_ugrid._create_dual_node_mesh  # noqa: F401

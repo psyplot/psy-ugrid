@@ -30,7 +30,7 @@ BROWSER := python -c "$$BROWSER_PYSCRIPT"
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
-clean: clean-build clean-pyc clean-test clean-venv ## remove all build, virtual environments, test, coverage and Python artifacts
+clean: clean-build clean-pyc clean-test clean-venv clean-c ## remove all build, virtual environments, test, coverage and Python artifacts
 
 clean-build: ## remove build artifacts
 	rm -fr build/
@@ -53,6 +53,10 @@ clean-test: ## remove test and coverage artifacts
 
 clean-venv:  # remove the virtual environment
 	rm -rf venv
+
+clean-c:  # remove the cython-derived c-code
+	rm -rf psy_ugrid/*.c
+	rm -rf psy_ugrid/*.so
 
 lint/isort: ## check style with flake8
 	isort --check psy_ugrid tests
@@ -107,18 +111,18 @@ release: dist ## package and upload a release
 	twine upload dist/*
 
 dist: clean ## builds source and wheel package
-	python -m build
+	USE_CYTHON=true python -m build
 	ls -l dist
 
 install: clean ## install the package to the active Python's site-packages
 	python -m pip install .
 
-dev-install: clean
+dev-install:
 	python -m pip install -r docs/requirements.txt
 	python -m pip install -e .[dev]
 	pre-commit install
 
-venv-install: clean
+venv-install: clean-venv
 	python -m venv venv
 	venv/bin/python -m pip install -r docs/requirements.txt
 	venv/bin/python -m pip install -e .[dev]

@@ -4,3 +4,4 @@
 
 include versioneer.py
 include psy_ugrid/_version.py
+include psy_ugrid/*.pyx

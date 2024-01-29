@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2024 Helmholtz-Zentrum hereon GmbH
+# SPDX-FileCopyrightText: 2021-2024 Helmholtz-Zentrum hereon GmbH
 #
 # SPDX-License-Identifier: LGPL-3.0-only
 
@@ -22,8 +22,16 @@ from textwrap import dedent
 from typing import Dict, Optional, TypedDict
 
 import yaml
-from reuse import header
-from reuse.project import create_project
+from reuse.project import Project
+from reuse.vcs import find_root
+
+try:
+    from reuse._annotate import add_arguments as _orig_add_arguments
+    from reuse._annotate import run
+except ImportError:
+    # reuse < 3.0
+    from reuse.header import add_arguments as _orig_add_arguments
+    from reuse.header import run
 
 
 class LicenseShortCut(TypedDict):
@@ -58,9 +66,9 @@ def add_arguments(
         ),
     )
 
-    header.add_arguments(parser)
+    _orig_add_arguments(parser)
 
-    parser.set_defaults(func=header.run)
+    parser.set_defaults(func=run)
     parser.set_defaults(parser=parser)
 
 
@@ -102,7 +110,7 @@ def main(argv=None):
     args.year.append(shortcut["year"])
     args.copyright.append(shortcut["copyright"])
 
-    project = create_project()
+    project = Project(find_root())
     args.func(args, project)
 
 
