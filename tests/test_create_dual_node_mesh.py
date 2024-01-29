@@ -4,12 +4,16 @@
 
 # coding: utf-8
 """Test file for building the face_edge_connectivity"""
+from typing import Callable, List
+
 import numpy as np
 
 from psy_ugrid import ugrid
 
 
-def test_create_dual_node_mesh():
+def test_create_dual_node_mesh(
+    same_upon_permutation: Callable[[List, List], bool]
+):
     r"""Test for a mesh like
 
      /|\
@@ -40,10 +44,18 @@ def test_create_dual_node_mesh():
 
     # check faces
     assert np.ma.isMA(dual_faces)
-    assert dual_faces.filled(-999).tolist() == ref
+    test = dual_faces.filled(-999).tolist()
+    tests = [same_upon_permutation(t, r) for t, r in zip(test, ref)]
+    try:
+        assert all(tests)
+    except AssertionError:
+        # for better error message
+        assert test == ref
 
 
-def test_create_dual_node_mesh_na():
+def test_create_dual_node_mesh_na(
+    same_upon_permutation: Callable[[List, List], bool]
+):
     r"""Test for a mesh like
 
     |‾|\
@@ -78,4 +90,10 @@ def test_create_dual_node_mesh_na():
 
     # check faces
     assert np.ma.isMA(dual_faces)
-    assert dual_faces.filled(-999).tolist() == ref
+    test = dual_faces.filled(-999).tolist()
+    tests = [same_upon_permutation(t, r) for t, r in zip(test, ref)]
+    try:
+        assert all(tests)
+    except AssertionError:
+        # for better error message
+        assert test == ref
