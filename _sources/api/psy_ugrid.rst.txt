@@ -14,3 +14,4 @@ Submodules
 
    psy_ugrid.plotters
    psy_ugrid.plugin
+   psy_ugrid.ugrid

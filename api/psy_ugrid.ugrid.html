@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; psy-ugrid  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/nc-table-styles.css?v=d585f46f" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contribution and development hints" href="../contributing.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="psy_ugrid.plugin.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            psy-ugrid
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-for-development">Installation for development</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="psy_ugrid.html">psy_ugrid package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="psy_ugrid.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="psy_ugrid.plotters.html"><code class="docutils literal notranslate"><span class="pre">MyNewFormatoption</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psy_ugrid.plotters.html#psy_ugrid.plotters.MyPlotter"><code class="docutils literal notranslate"><span class="pre">MyPlotter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psy_ugrid.plugin.html"><code class="docutils literal notranslate"><span class="pre">get_versions()</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">UGrid</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contribution and development hints</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">psy-ugrid</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="psy_ugrid.html">psy_ugrid package</a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/psy_ugrid.ugrid.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p id="module-psy_ugrid.ugrid">ugrid classes</p>
+<p>set of classes for working with unstructured model grids</p>
+<p>The “ugrid” class is the base class: it stores everything in memory</p>
+<p>It can read from and write to netcdf files in the UGRID format.</p>
+<p>It may be able to reference a netcdf file at some point, rather than storing
+directly in memory.</p>
+<p>NOTE: only tested for triangular and quad mesh grids at the moment.</p>
+<p>NOTE: This code has been extracted from the pull request by &#64;Chilipp to the
+gridded package, at <a class="reference external" href="https://github.com/NOAA-ORR-ERD/gridded/pull/62/">https://github.com/NOAA-ORR-ERD/gridded/pull/62/</a>.
+Gridded is licensed under the Unlicense.</p>
+<p><strong>Classes:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid" title="psy_ugrid.ugrid.UGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UGrid</span></code></a>([nodes, node_lon, node_lat, faces, ...])</p></td>
+<td><p>A basic class to hold an unstructured grid as defined in the UGrid convention.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">psy_ugrid.ugrid.</span></span><span class="sig-name descname"><span class="pre">UGrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_lon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_lat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundaries</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_face_connectivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_edge_connectivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_coordinates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face_coordinates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_coordinates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mesh_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mesh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_face_connectivity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A basic class to hold an unstructured grid as defined in the UGrid convention.</p>
+<p>The internal structure mirrors the netcdf data standard.</p>
+<p><strong>Attributes:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.boundaries" title="psy_ugrid.ugrid.UGrid.boundaries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundaries</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.edges" title="psy_ugrid.ugrid.UGrid.edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">edges</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.face_edge_connectivity" title="psy_ugrid.ugrid.UGrid.face_edge_connectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_edge_connectivity</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.face_face_connectivity" title="psy_ugrid.ugrid.UGrid.face_face_connectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">face_face_connectivity</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.faces" title="psy_ugrid.ugrid.UGrid.faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">faces</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.info" title="psy_ugrid.ugrid.UGrid.info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">info</span></code></a></p></td>
+<td><p>summary of information about the grid</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.node_lat" title="psy_ugrid.ugrid.UGrid.node_lat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_lat</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.node_lon" title="psy_ugrid.ugrid.UGrid.node_lon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">node_lon</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.nodes" title="psy_ugrid.ugrid.UGrid.nodes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nodes</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.num_vertices" title="psy_ugrid.ugrid.UGrid.num_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">num_vertices</span></code></a></p></td>
+<td><p>Maximum number of vertices in a face.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.build_boundaries" title="psy_ugrid.ugrid.UGrid.build_boundaries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_boundaries</span></code></a>()</p></td>
+<td><p>Builds the boundary segments from the cell array.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.build_boundary_coordinates" title="psy_ugrid.ugrid.UGrid.build_boundary_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_boundary_coordinates</span></code></a>()</p></td>
+<td><p>Builds the boundary_coordinates array, using the average of the nodes defining each boundary segment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.build_edge_coordinates" title="psy_ugrid.ugrid.UGrid.build_edge_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_edge_coordinates</span></code></a>()</p></td>
+<td><p>Builds the edge_coordinates array, using the average of the nodes defining each edge.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.build_edge_face_connectivity" title="psy_ugrid.ugrid.UGrid.build_edge_face_connectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_edge_face_connectivity</span></code></a>()</p></td>
+<td><p>Build the edge_face_connectivity</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.build_edges" title="psy_ugrid.ugrid.UGrid.build_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_edges</span></code></a>()</p></td>
+<td><p>Builds the edges array: all the edges defined by the faces</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.build_face_coordinates" title="psy_ugrid.ugrid.UGrid.build_face_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_face_coordinates</span></code></a>()</p></td>
+<td><p>Builds the face_coordinates array, using the average of the nodes defining each face.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.build_face_edge_connectivity" title="psy_ugrid.ugrid.UGrid.build_face_edge_connectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_face_edge_connectivity</span></code></a>()</p></td>
+<td><p>Builds the face-edge connectivity array</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.build_face_face_connectivity" title="psy_ugrid.ugrid.UGrid.build_face_face_connectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_face_face_connectivity</span></code></a>()</p></td>
+<td><p>Builds the face_face_connectivity array: giving the neighbors of each cell.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.create_dual_mesh" title="psy_ugrid.ugrid.UGrid.create_dual_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_dual_mesh</span></code></a>([location])</p></td>
+<td><p>Create the dual mesh for edge or nodes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.get_face_edge_orientation" title="psy_ugrid.ugrid.UGrid.get_face_edge_orientation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_face_edge_orientation</span></code></a>()</p></td>
+<td><p>Get the orientation for each edge in the corresponding face</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.get_lines" title="psy_ugrid.ugrid.UGrid.get_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_lines</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.infer_location" title="psy_ugrid.ugrid.UGrid.infer_location"><code class="xref py py-obj docutils literal notranslate"><span class="pre">infer_location</span></code></a>(data)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param data<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py property">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.boundaries">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">boundaries</span></span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.boundaries" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.build_boundaries">
+<span class="sig-name descname"><span class="pre">build_boundaries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.build_boundaries" title="Link to this definition"></a></dt>
+<dd><p>Builds the boundary segments from the cell array.</p>
+<p>It is assumed that -1 means no neighbor, which indicates a boundary</p>
+<p>This will over-write the existing boundaries array if there is one.</p>
+<p>This is a not-very-smart just loop through all the faces method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.build_boundary_coordinates">
+<span class="sig-name descname"><span class="pre">build_boundary_coordinates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.build_boundary_coordinates" title="Link to this definition"></a></dt>
+<dd><p>Builds the boundary_coordinates array, using the average of the
+nodes defining each boundary segment.</p>
+<p>Note that you may want a different definition of the boundary
+coordinates than this computes, but this is here to have
+an easy default.</p>
+<p>This will write-over an existing face_coordinates array</p>
+<p>Useful if you want this in the output file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.build_edge_coordinates">
+<span class="sig-name descname"><span class="pre">build_edge_coordinates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.build_edge_coordinates" title="Link to this definition"></a></dt>
+<dd><p>Builds the edge_coordinates array, using the average of the
+nodes defining each edge.</p>
+<p>Note that you may want a different definition of the edge
+coordinates than this computes, but this is here to have
+an easy default.</p>
+<p>This will write-over an existing edge_coordinates array</p>
+<p>Useful if you want this in the output file</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.build_edge_face_connectivity">
+<span class="sig-name descname"><span class="pre">build_edge_face_connectivity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.build_edge_face_connectivity" title="Link to this definition"></a></dt>
+<dd><p>Build the edge_face_connectivity</p>
+<p>The edge_face_connectivity is the mapping from each edge in the
+<a class="reference internal" href="#psy_ugrid.ugrid.UGrid.edges" title="psy_ugrid.ugrid.UGrid.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">edges</span></code></a> to the attached face in <cite>faces</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.build_edges">
+<span class="sig-name descname"><span class="pre">build_edges</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.build_edges" title="Link to this definition"></a></dt>
+<dd><p>Builds the edges array: all the edges defined by the faces</p>
+<p>This will replace the existing edge array, if there is one.</p>
+<p>NOTE: arbitrary order – should the order be preserved?</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.build_face_coordinates">
+<span class="sig-name descname"><span class="pre">build_face_coordinates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.build_face_coordinates" title="Link to this definition"></a></dt>
+<dd><p>Builds the face_coordinates array, using the average of the
+nodes defining each face.</p>
+<p>Note that you may want a different definition of the face
+coordinates than this computes, but this is here to have
+an easy default.</p>
+<p>This will write-over an existing face_coordinates array.</p>
+<p>Useful if you want this in the output file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.build_face_edge_connectivity">
+<span class="sig-name descname"><span class="pre">build_face_edge_connectivity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.build_face_edge_connectivity" title="Link to this definition"></a></dt>
+<dd><p>Builds the face-edge connectivity array</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.build_face_face_connectivity">
+<span class="sig-name descname"><span class="pre">build_face_face_connectivity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.build_face_face_connectivity" title="Link to this definition"></a></dt>
+<dd><p>Builds the face_face_connectivity array: giving the neighbors of each cell.</p>
+<p>Note: arbitrary order and CW vs CCW may not be consistent.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.create_dual_mesh">
+<span class="sig-name descname"><span class="pre">create_dual_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'edge'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.create_dual_mesh" title="Link to this definition"></a></dt>
+<dd><p>Create the dual mesh for edge or nodes.</p>
+<p>This method creates the dual mesh, either specified through the nodes,
+or specified through the edges. For a Delaunay triangulation case with
+<code class="docutils literal notranslate"><span class="pre">location</span> <span class="pre">==</span> <span class="pre">&quot;node&quot;</span></code>, this is commonly known as Voronoi Polygons.</p>
+<dl class="simple">
+<dt>:param location=”edge”<span class="classifier">the source for the dual mash. can be one of</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">&quot;node&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;edge&quot;</span></code></p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="#psy_ugrid.ugrid.UGrid" title="psy_ugrid.ugrid.UGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UGrid</span></code></a> with <cite>nodes</cite> and <cite>faces</cite> of the dual mesh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.edges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">edges</span></span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.edges" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.face_edge_connectivity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_edge_connectivity</span></span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.face_edge_connectivity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.face_face_connectivity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">face_face_connectivity</span></span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.face_face_connectivity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.faces">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">faces</span></span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.faces" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.get_face_edge_orientation">
+<span class="sig-name descname"><span class="pre">get_face_edge_orientation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.get_face_edge_orientation" title="Link to this definition"></a></dt>
+<dd><p>Get the orientation for each edge in the corresponding face</p>
+<p>This method returns an array with the same shape as <a class="reference internal" href="#psy_ugrid.ugrid.UGrid.faces" title="psy_ugrid.ugrid.UGrid.faces"><code class="xref py py-attr docutils literal notranslate"><span class="pre">faces</span></code></a> that
+is one if the corresponding edge has the same orientation as in
+<a class="reference internal" href="#psy_ugrid.ugrid.UGrid.edges" title="psy_ugrid.ugrid.UGrid.edges"><code class="xref py py-attr docutils literal notranslate"><span class="pre">edges</span></code></a>, and -1 otherwise</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.get_lines">
+<span class="sig-name descname"><span class="pre">get_lines</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.get_lines" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.infer_location">
+<span class="sig-name descname"><span class="pre">infer_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.infer_location" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>‘nodes’ if data will fit to the nodes,
+‘faces’ if the data will fit to the faces,
+‘boundaries’ if the data will fit the boundaries.
+None otherwise.</p>
+</dd>
+</dl>
+<p>If data is a netcdf variable, the “location” attribute is checked.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.info">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">info</span></span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.info" title="Link to this definition"></a></dt>
+<dd><p>summary of information about the grid</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.node_lat">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">node_lat</span></span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.node_lat" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.node_lon">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">node_lon</span></span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.node_lon" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.nodes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nodes</span></span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.nodes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.num_vertices">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">num_vertices</span></span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.num_vertices" title="Link to this definition"></a></dt>
+<dd><p>Maximum number of vertices in a face.</p>
+</dd></dl>
+
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <!--
+SPDX-FileCopyrightText: 2024 Helmholtz-Zentrum hereon GmbH
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="psy_ugrid.plugin.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Contribution and development hints" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 Helmholtz-Zentrum hereon GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+
+<div class="footer">
+    <span class="creativecommons">
+    <a href="https://creativecommons.org/licenses/by/4.0/" >
+    <img style="height: 1.5em;" src="../_static/license_logo.png" border="0" alt="Creative Commons License"/>
+    </a>
+    This documentation is licensed under
+    <a href="https://creativecommons.org/licenses/by/4.0/">
+    CC-BY-4.0
+    </a>
+    </span>
+</div>
+
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
