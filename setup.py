@@ -8,9 +8,9 @@ import os
 import versioneer
 from setuptools import Extension, setup
 
-USE_CYTHON = os.getenv("USE_CYTHON", "").lower()
-USE_CYTHON = USE_CYTHON and (
-    not USE_CYTHON.startswith("f") and not USE_CYTHON.startswith("n")
+_USE_CYTHON = os.getenv("USE_CYTHON", "").lower()
+USE_CYTHON = bool(_USE_CYTHON) and (
+    not _USE_CYTHON.startswith("f") and not _USE_CYTHON.startswith("n")
 )
 
 ext = ".pyx" if USE_CYTHON else ".c"

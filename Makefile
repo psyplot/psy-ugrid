@@ -79,6 +79,7 @@ quick-test: ## run tests quickly with the default Python
 	python -m pytest
 
 pipenv-test: ## run tox
+	pipenv run mypy psy_ugrid
 	pipenv run isort --check psy_ugrid
 	pipenv run black --line-length 79 --check psy_ugrid
 	pipenv run flake8 psy_ugrid
