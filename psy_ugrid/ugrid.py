@@ -196,7 +196,7 @@ class UGrid(object):
     def node_lat(self):
         return self._nodes[:, 1]
 
-    @nodes.setter
+    @nodes.setter  # type: ignore[no-redef]
     def nodes(self, nodes_coords):
         # Room here to do consistency checking, etc.
         # For now -- simply make sure it's a numpy array.
@@ -205,7 +205,7 @@ class UGrid(object):
         else:
             self._nodes = np.asanyarray(nodes_coords, dtype=NODE_DT)
 
-    @nodes.deleter
+    @nodes.deleter  # type: ignore[no-redef]
     def nodes(self):
         # If there are no nodes, there can't be anything else.
         self._nodes = np.zeros((0, 2), dtype=NODE_DT)

@@ -12,7 +12,7 @@ import pytest  # noqa: F401
 
 
 @pytest.fixture
-def get_test_file() -> Callable[str, Path]:
+def get_test_file() -> Callable[[str], Path]:
     """Fixture to get the path to a test file."""
 
     def get_file(basename: str) -> Path:

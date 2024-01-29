@@ -12,12 +12,13 @@ def test_get_decoder(get_test_file):
     ds = psyd.open_dataset(get_test_file("simple_triangular_grid_si0.nc"))
     d = psyd.CFDecoder.get_decoder(ds, ds.Mesh2_fcvar)
     assert isinstance(d, UGridDecoder)
-    return ds, d
 
 
 def test_x(get_test_file):
     """Test the get_x method"""
-    ds, d = test_get_decoder(get_test_file)
+    ds = psyd.open_dataset(get_test_file("simple_triangular_grid_si0.nc"))
+    d = psyd.CFDecoder.get_decoder(ds, ds.Mesh2_fcvar)
+
     x = d.get_x(ds.Mesh2_fcvar)
     assert "standard_name" in x.attrs
     assert x.attrs["standard_name"] == "longitude"
@@ -27,7 +28,9 @@ def test_x(get_test_file):
 
 def test_y(get_test_file):
     """Test the get_y method"""
-    ds, d = test_get_decoder(get_test_file)
+    ds = psyd.open_dataset(get_test_file("simple_triangular_grid_si0.nc"))
+    d = psyd.CFDecoder.get_decoder(ds, ds.Mesh2_fcvar)
+
     y = d.get_y(ds.Mesh2_fcvar)
     assert "standard_name" in y.attrs
     assert y.attrs["standard_name"] == "latitude"
