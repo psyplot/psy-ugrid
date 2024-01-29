@@ -12,6 +12,7 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
+   psy_ugrid.decoder
    psy_ugrid.plotters
    psy_ugrid.plugin
    psy_ugrid.ugrid

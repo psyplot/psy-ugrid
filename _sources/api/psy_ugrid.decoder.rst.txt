@@ -1,0 +1,4 @@
+.. automodule:: psy_ugrid.decoder
+   :members:
+   :undoc-members:
+   :show-inheritance:
