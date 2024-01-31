@@ -14,7 +14,7 @@ https://codebase.helmholtz.cloud/psyplot/psyplot/-/merge_requests/31
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Dict
+from typing import TYPE_CHECKING, Dict, List
 from warnings import warn
 
 import numpy as np
@@ -664,3 +664,28 @@ class UGridDecoder(psyd.CFDecoder):
                 )
         else:
             return ret
+
+    def get_metadata_sections(self, var: xr.DataArray) -> List[str]:
+        # reimplemented to add the Mesh information
+        return super().get_metadata_sections(var) + ["Mesh information"]
+
+    get_metadata_sections.__doc__ = (
+        psyd.CFDecoder.get_metadata_sections.__doc__
+    )
+
+    def get_metadata_for_section(
+        self, var: xr.DataArray, section: str, coords: Dict
+    ) -> Dict[str, str]:
+        # reimplemented to account for the mesh variable
+        if section == "Mesh information":
+            try:
+                mesh = coords[var.attrs["mesh"]]
+            except KeyError:
+                raise ValueError(
+                    f"Could not find mesh variable {var.attrs['mesh']}"
+                    f"in the coordinates {tuple(coords)}"
+                )
+            else:
+                return {key: str(val) for key, val in mesh.attrs.items()}
+        else:
+            return super().get_metadata_for_section(var, section, coords)
