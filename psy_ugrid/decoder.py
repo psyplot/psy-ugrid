@@ -36,6 +36,13 @@ class UGridDecoder(psyd.CFDecoder):
     # object representing it
     _grids: Dict[str, UGrid] = {}
 
+    #: True if the data of the CFDecoder supports the extraction of a subset of
+    #: the data based on the indices.
+    #:
+    #: For UGRID conventions, this is not easily possible because the
+    #: extraction of a subset breaks the connectivity information of the mesh
+    supports_spatial_slicing: bool = False
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._grids = {}
