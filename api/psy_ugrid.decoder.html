@@ -164,6 +164,14 @@ and has been originally developed in</p>
 </tr>
 </tbody>
 </table>
+<p><strong>Attributes:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.decoder.UGridDecoder.supports_spatial_slicing" title="psy_ugrid.decoder.UGridDecoder.supports_spatial_slicing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">supports_spatial_slicing</span></code></a></p></td>
+<td><p>True if the data of the CFDecoder supports the extraction of a subset of the data based on the indices.</p></td>
+</tr>
+</tbody>
+</table>
 <dl class="py method">
 <dt class="sig sig-object py" id="psy_ugrid.decoder.UGridDecoder.can_decode">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">can_decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.decoder.UGridDecoder.can_decode" title="Link to this definition"></a></dt>
@@ -429,6 +437,15 @@ this decoder is used</p></li>
 <span class="sig-name descname"><span class="pre">is_unstructured</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.decoder.UGridDecoder.is_unstructured" title="Link to this definition"></a></dt>
 <dd><p>Reimpletemented to return always True. Any <code class="docutils literal notranslate"><span class="pre">*args</span></code> and <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>
 are ignored</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="psy_ugrid.decoder.UGridDecoder.supports_spatial_slicing">
+<span class="sig-name descname"><span class="pre">supports_spatial_slicing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#psy_ugrid.decoder.UGridDecoder.supports_spatial_slicing" title="Link to this definition"></a></dt>
+<dd><p>True if the data of the CFDecoder supports the extraction of a subset of
+the data based on the indices.</p>
+<p>For UGRID conventions, this is not easily possible because the
+extraction of a subset breaks the connectivity information of the mesh</p>
 </dd></dl>
 
 </dd></dl>
