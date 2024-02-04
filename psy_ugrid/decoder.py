@@ -123,6 +123,14 @@ class UGridDecoder(psyd.CFDecoder):
 
         mesh = self.get_mesh(var, coords)
 
+        if not mesh:
+            mesh = self.get_mesh(var)
+
+        if not mesh:
+            raise ValueError(
+                "Could not find the mesh variable in the coordinates."
+            )
+
         if mesh.name in self._grids:
             grid = self._grids[mesh.name]
         else:
@@ -416,10 +424,44 @@ class UGridDecoder(psyd.CFDecoder):
         str
             ``"node"``, ``"face"`` or ``"edge"``
         """
+        if coords is None:
+            coords = self.ds.coords
         if not var.attrs.get("location"):
             if grid is None:
                 grid = self.get_ugrid(var, coords, loc="face")
-            loc = grid.infer_location(var)
+            # get the axis of the spatial dimension by looking up possible
+            # dimension names. We cannot use get_xname here because this uses
+            # infer_location
+            mesh = self.get_mesh(var, coords)
+            possible_dims = set()
+            for attr in [
+                "node_coordinates",
+                "edge_coordinates",
+                "face_coordinates",
+            ]:
+                if attr in mesh.attrs:
+                    for vname in mesh.attrs[attr].split():
+                        cvar = coords.get(vname)
+                        if cvar is not None:
+                            possible_dims.update(cvar.dims)
+            for attr in [
+                "face_node_connectivity",
+                "edge_node_connectivity",
+                "face_edge_connectivity",
+                "face_face_connectivity",
+                "edge_face_connectivity",
+            ]:
+                vname = mesh.attrs.get(attr)
+                if vname:
+                    cvar = coords.get(vname)
+                    if cvar is not None:
+                        possible_dims.update(cvar.dims)
+            found = possible_dims.intersection(var.dims)
+            if found and len(found) == 1:
+                axis = var.dims.index(next(iter(found)))
+            else:
+                axis = -1
+            loc = grid.infer_location(var, axis)
         else:
             loc = var.attrs["location"]
         return loc

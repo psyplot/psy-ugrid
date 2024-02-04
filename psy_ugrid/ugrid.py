@@ -326,9 +326,10 @@ class UGrid(object):
     def face_edge_connectivity(self):
         self._face_edge_connectivity = None
 
-    def infer_location(self, data):
+    def infer_location(self, data, axis=-1):
         """
         :param data:
+        :param axis:
 
         :returns: 'nodes' if data will fit to the nodes,
                   'faces' if the data will fit to the faces,
@@ -347,7 +348,7 @@ class UGrid(object):
         #     pass # try checking array size
         # # fixme: should use UGRID compliant nc_attributes if possible
         try:
-            size = data.shape[-1]
+            size = data.shape[axis]
         except IndexError:
             return None  # Variable has a size-zero data array
         if size == self.nodes.shape[0]:
