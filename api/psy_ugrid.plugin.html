@@ -48,16 +48,18 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-for-development">Installation for development</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="psy_ugrid.html">psy_ugrid package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="psy_ugrid.html#submodules">Submodules</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="psy_ugrid.html">psy_ugrid package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="psy_ugrid.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="psy_ugrid.decoder.html"><code class="docutils literal notranslate"><span class="pre">UGridDecoder</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="psy_ugrid.plotters.html"><code class="docutils literal notranslate"><span class="pre">MyNewFormatoption</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="psy_ugrid.plotters.html#psy_ugrid.plotters.MyPlotter"><code class="docutils literal notranslate"><span class="pre">MyPlotter</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">get_versions()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="psy_ugrid.ugrid.html"><code class="docutils literal notranslate"><span class="pre">UGrid</span></code></a></li>
 </ul>
 </li>
@@ -94,7 +96,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <p id="module-psy_ugrid.plugin">psy-ugrid psyplot plugin</p>
+<p>This module defines the rcParams for the psy-ugrid plugin. This module will
+be imported when psyplot is imported. What is should contain is:</p>
+<ul class="simple">
+<li><p>an rcParams variable as instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">psyplot.config.rcsetup.RcParams</span></code>
+that describes the configuration of your plugin</p></li>
+<li><p>a get_versions function that returns the version of your plugin and the ones
+from its requirements</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Because of recursion issues, You have to load the psyplot module before
+loading this module! In other words, you have to type</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psyplot</span>
+<span class="kn">import</span> <span class="nn">psy_ugrid.plugin</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.plugin.get_versions" title="psy_ugrid.plugin.get_versions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_versions</span></code></a>([requirements])</p></td>
+<td><p>Get the versions of psy-ugrid and it's requirements</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="psy_ugrid.plugin.get_versions">
+<span class="sig-prename descclassname"><span class="pre">psy_ugrid.plugin.</span></span><span class="sig-name descname"><span class="pre">get_versions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requirements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.plugin.get_versions" title="Link to this definition"></a></dt>
+<dd><p>Get the versions of psy-ugrid and it’s requirements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>requirements</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><em>bool</em></a>) – If True, the requirements are imported and it’s versions are included</p>
+</dd>
+</dl>
+</dd></dl>
+
+
 
            </div>
           </div>

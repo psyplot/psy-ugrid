@@ -56,8 +56,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="psy_ugrid.html">psy_ugrid package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="psy_ugrid.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="psy_ugrid.decoder.html"><code class="docutils literal notranslate"><span class="pre">UGridDecoder</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="psy_ugrid.plotters.html"><code class="docutils literal notranslate"><span class="pre">MyNewFormatoption</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="psy_ugrid.plotters.html#psy_ugrid.plotters.MyPlotter"><code class="docutils literal notranslate"><span class="pre">MyPlotter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="psy_ugrid.plugin.html"><code class="docutils literal notranslate"><span class="pre">get_versions()</span></code></a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">UGrid</span></code></a></li>
 </ul>
 </li>
@@ -189,7 +191,7 @@ Gridded is licensed under the Unlicense.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.get_lines" title="psy_ugrid.ugrid.UGrid.get_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_lines</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.infer_location" title="psy_ugrid.ugrid.UGrid.infer_location"><code class="xref py py-obj docutils literal notranslate"><span class="pre">infer_location</span></code></a>(data)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#psy_ugrid.ugrid.UGrid.infer_location" title="psy_ugrid.ugrid.UGrid.infer_location"><code class="xref py py-obj docutils literal notranslate"><span class="pre">infer_location</span></code></a>(data[, axis])</p></td>
 <td><p><dl class="field-list simple">
 <dt class="field-odd">param data<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
@@ -331,10 +333,13 @@ is one if the corresponding edge has the same orientation as in
 
 <dl class="py method">
 <dt class="sig sig-object py" id="psy_ugrid.ugrid.UGrid.infer_location">
-<span class="sig-name descname"><span class="pre">infer_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.infer_location" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">infer_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#psy_ugrid.ugrid.UGrid.infer_location" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> – </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – </p></li>
+<li><p><strong>axis</strong> – </p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>‘nodes’ if data will fit to the nodes,
