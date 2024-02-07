@@ -14,19 +14,13 @@ description = "A psyplot plugin for decoding unstructured grids following the UG
 readme = "README.md"
 keywords = [
     "visualization",
-
     "psyplot",
-
     "ugrid",
-
     "unstructured",
-
     "dual mesh",
-
     "native",
-
     "cython",
-    ]
+]
 
 authors = [
     { name = 'Philipp S. Sommer', email = 'philipp.sommer@hereon.de' },
@@ -77,6 +71,7 @@ testsite = [
     "pytest-cov",
     "reuse",
     "cffconvert",
+    "pytest-xdist",
 ]
 docs = [
     "autodocsumm",
