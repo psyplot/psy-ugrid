@@ -21,13 +21,6 @@ Welcome to psy-ugrid's documentation!
 
 .. rubric:: A psyplot plugin for decoding unstructured grids following the UGRID conventions
 
-.. warning::
-
-    This page has been automatically generated as has not yet been reviewed by
-    the authors of psy-ugrid!
-    Stay tuned for updates and discuss with us at
-    https://codebase.helmholtz.cloud/psyplot/psy-ugrid
-
 
 .. toctree::
    :maxdepth: 2
