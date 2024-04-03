@@ -9,14 +9,12 @@ SPDX-License-Identifier: CC-BY-4.0
 [![CI](https://codebase.helmholtz.cloud/psyplot/psy-ugrid/badges/main/pipeline.svg)](https://codebase.helmholtz.cloud/psyplot/psy-ugrid/-/pipelines?page=1&scope=all&ref=main)
 [![Code coverage](https://codebase.helmholtz.cloud/psyplot/psy-ugrid/badges/main/coverage.svg)](https://codebase.helmholtz.cloud/psyplot/psy-ugrid/-/graphs/main/charts)
 [![Latest Release](https://codebase.helmholtz.cloud/psyplot/psy-ugrid/-/badges/release.svg)](https://codebase.helmholtz.cloud/psyplot/psy-ugrid)
-<!-- TODO: uncomment the following line when the package is published at https://pypi.org -->
-<!-- [![PyPI version](https://img.shields.io/pypi/v/psy-ugrid.svg)](https://pypi.python.org/pypi/psy-ugrid/) -->
+[![PyPI version](https://img.shields.io/pypi/v/psy-ugrid.svg)](https://pypi.python.org/pypi/psy-ugrid/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
-<!-- TODO: uncomment the following line when the package is registered at https://api.reuse.software -->
-<!-- [![REUSE status](https://api.reuse.software/badge/codebase.helmholtz.cloud/psyplot/psy-ugrid)](https://api.reuse.software/info/codebase.helmholtz.cloud/psyplot/psy-ugrid) -->
+[![REUSE status](https://api.reuse.software/badge/codebase.helmholtz.cloud/psyplot/psy-ugrid)](https://api.reuse.software/info/codebase.helmholtz.cloud/psyplot/psy-ugrid)
 
 
 A psyplot plugin for decoding unstructured grids following the UGRID conventions
@@ -47,6 +45,14 @@ More detailed installation instructions my be found in the [docs][docs].
 
 [source code]: https://codebase.helmholtz.cloud/psyplot/psy-ugrid
 [docs]: https://psyplot.github.io/psy-ugridinstallation.html
+
+## Usage
+
+Once installed, the `UGRIDDecoder` is automatically registered within the
+`psyplot` framework. Once you open a UGRID-conform file, the `UGRIDDecoder`
+will be automatically used for all variables in the netCDF-file that define a
+`mesh`. You do not have to do anything extra.
+
 
 ## Technical note
 
