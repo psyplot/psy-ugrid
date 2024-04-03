@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo &mdash; psy-ugrid  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/nc-table-styles.css?v=d585f46f" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="api.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            psy-ugrid
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-for-development">Installation for development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#usage">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Demo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#visualization-of-face-variables">Visualization of face variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#visualization-of-node-and-edge-variables">Visualization of node and edge variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/psy_ugrid.html">psy_ugrid package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/psy_ugrid.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/psy_ugrid.decoder.html"><code class="docutils literal notranslate"><span class="pre">UGridDecoder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/psy_ugrid.plotters.html"><code class="docutils literal notranslate"><span class="pre">MyNewFormatoption</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/psy_ugrid.plotters.html#psy_ugrid.plotters.MyPlotter"><code class="docutils literal notranslate"><span class="pre">MyPlotter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/psy_ugrid.plugin.html"><code class="docutils literal notranslate"><span class="pre">get_versions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/psy_ugrid.ugrid.html"><code class="docutils literal notranslate"><span class="pre">UGrid</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contribution and development hints</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">psy-ugrid</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Demo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/demo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="demo">
+<span id="id1"></span><h1>Demo<a class="headerlink" href="#demo" title="Link to this heading"></a></h1>
+<p>We will demonstrate how <code class="docutils literal notranslate"><span class="pre">psy-ugrid</span></code> can be used to visualize unstructured
+data on it’s native grid. We will use two demo files here:</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="_downloads/1535a49d301af1cca3ed115f0c5fda81/simple_triangular_grid_si0.nc"><code class="xref download docutils literal notranslate"><span class="pre">one</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">triangular</span> <span class="pre">grid</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="_downloads/96642d3c4827ba275d63596727361b90/simple_flexible_grid_si0.nc"><code class="xref download docutils literal notranslate"><span class="pre">one</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">grid</span> <span class="pre">that</span> <span class="pre">contains</span> <span class="pre">triangles</span> <span class="pre">and</span> <span class="pre">quadriliterals</span></code></a></p></li>
+</ul>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">psyplot.project</span> <span class="k">as</span> <span class="nn">psy</span>
+<span class="gp">   ...: </span>
+<span class="gp">   ...: </span><span class="n">psy</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;plotter.plot2d.cmap&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;viridis&quot;</span>
+<span class="gp">   ...: </span>
+
+<span class="gp">In [2]: </span><span class="n">ds_triangular</span> <span class="o">=</span> <span class="n">psy</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;simple_triangular_grid_si0.nc&quot;</span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="n">ds_triangular</span>
+<span class="gp">   ...: </span>
+<span class="gh">Out[2]: </span>
+<span class="go">&lt;xarray.Dataset&gt; Size: 92B</span>
+<span class="go">Dimensions:           (nMesh2_node: 4, nMesh2_face: 2, Three: 3, time: 1)</span>
+<span class="go">Coordinates:</span>
+<span class="go">    Mesh2             int32 4B ...</span>
+<span class="go">    Mesh2_node_x      (nMesh2_node) float32 16B ...</span>
+<span class="go">    Mesh2_node_y      (nMesh2_node) float32 16B ...</span>
+<span class="go">    Mesh2_face_nodes  (nMesh2_face, Three) int32 24B ...</span>
+<span class="go">  * time              (time) datetime64[ns] 8B 1951-01-01</span>
+<span class="go">Dimensions without coordinates: nMesh2_node, nMesh2_face, Three</span>
+<span class="go">Data variables:</span>
+<span class="go">    Mesh2_ndvar       (time, nMesh2_node) float32 16B ...</span>
+<span class="go">    Mesh2_fcvar       (time, nMesh2_face) float32 8B ...</span>
+<span class="go">Attributes:</span>
+<span class="go">    title:              test mesh</span>
+<span class="go">    institution:        Universitaet Hamburg</span>
+<span class="go">    contact:            None</span>
+<span class="go">    source:             None</span>
+<span class="go">    references:         None</span>
+<span class="go">    comment:            None</span>
+<span class="go">    Conventions:        UGRID-0.9</span>
+<span class="go">    creation_date:      2015-01-26 09:19:01  01:00</span>
+<span class="go">    modification_date:  2015-01-26 09:19:01  01:00</span>
+
+<span class="gp">In [3]: </span><span class="n">ds_flexible</span> <span class="o">=</span> <span class="n">psy</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;simple_flexible_grid_si0.nc&quot;</span><span class="p">)</span>
+<span class="gp">   ...: </span><span class="n">ds_flexible</span>
+<span class="gp">   ...: </span>
+<span class="gh">Out[3]: </span>
+<span class="go">&lt;xarray.Dataset&gt; Size: 200B</span>
+<span class="go">Dimensions:           (nMesh2_node: 5, nMesh2_face: 2, nMaxMesh2_face_nodes: 4,</span>
+<span class="go">                       time: 1)</span>
+<span class="go">Coordinates:</span>
+<span class="go">    Mesh2             int32 4B ...</span>
+<span class="go">    Mesh2_node_x      (nMesh2_node) float32 20B ...</span>
+<span class="go">    Mesh2_node_y      (nMesh2_node) float32 20B ...</span>
+<span class="go">    Mesh2_face_nodes  (nMesh2_face, nMaxMesh2_face_nodes) float64 64B ...</span>
+<span class="go">  * time              (time) datetime64[ns] 8B 1951-01-01</span>
+<span class="go">  * nMesh2_face       (nMesh2_face) int64 16B 0 1</span>
+<span class="go">  * nMesh2_node       (nMesh2_node) int64 40B 0 1 2 3 4</span>
+<span class="go">Dimensions without coordinates: nMaxMesh2_face_nodes</span>
+<span class="go">Data variables:</span>
+<span class="go">    Mesh2_ndvar       (time, nMesh2_node) float32 20B ...</span>
+<span class="go">    Mesh2_fcvar       (time, nMesh2_face) float32 8B ...</span>
+<span class="go">Attributes:</span>
+<span class="go">    title:              test mesh</span>
+<span class="go">    institution:        Universitaet Hamburg</span>
+<span class="go">    contact:            None</span>
+<span class="go">    source:             None</span>
+<span class="go">    references:         None</span>
+<span class="go">    comment:            None</span>
+<span class="go">    Conventions:        UGRID-0.9</span>
+<span class="go">    creation_date:      2015-01-26 09:19:01  01:00</span>
+<span class="go">    modification_date:  2015-01-26 09:19:01  01:00</span>
+</pre></div>
+</div>
+<p>The ugrid decoder automatically realized the <code class="docutils literal notranslate"><span class="pre">mesh</span></code> attributes in some of the
+variables and therefore already assigned some coordinates for the netCDF
+variables that hold the connectivity information.</p>
+<p>Variables that hold a <code class="docutils literal notranslate"><span class="pre">mesh</span></code> attribute (such as the variable <code class="docutils literal notranslate"><span class="pre">Mesh2_fcvar</span></code>
+in these datasets) automatically use the <code class="xref py py-class docutils literal notranslate"><span class="pre">UGRIDDecoder</span></code></p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">ds_triangular</span><span class="o">.</span><span class="n">Mesh2_fcvar</span><span class="o">.</span><span class="n">psy</span><span class="o">.</span><span class="n">decoder</span>
+<span class="gh">Out[4]: </span><span class="go">&lt;psy_ugrid.decoder.UGridDecoder at 0x7f3cf85421f0&gt;</span>
+</pre></div>
+</div>
+<section id="visualization-of-face-variables">
+<span id="demo-face"></span><h2>Visualization of face variables<a class="headerlink" href="#visualization-of-face-variables" title="Link to this heading"></a></h2>
+<p>According to the UGRID conventions, variables can either represent a node in
+the mesh, a face or an edge. Very often, however, the netCDF files only contain
+the so-called face-node-connectivty, i.e. the information on how the faces
+look like. The decoder of the <code class="docutils literal notranslate"><span class="pre">psy-ugrid</span></code> package is able to decode this
+information and generate polygons that can then be visualized by plotmethods
+of the psyplot plugin <cite>psy-simple</cite> or <cite>psy-maps</cite>:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">ds_triangular</span><span class="o">.</span><span class="n">psy</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mesh2_fcvar&quot;</span><span class="p">)</span>
+<span class="gh">Out[5]: </span><span class="go">psyplot.project.Project([    arr0: 1-dim DataArray of Mesh2_fcvar, with (nMesh2_face)=(2,), Mesh2=-2147483647, time=1951-01-01])</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/docs_triangular_face.png"><img alt="_images/docs_triangular_face.png" src="_images/docs_triangular_face.png" style="width: 4in;" /></a>
+<p>This even works out of the box for files, where we have mixed triangular and
+quadriliteral faces:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">ds_flexible</span><span class="o">.</span><span class="n">psy</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mesh2_fcvar&quot;</span><span class="p">)</span>
+<span class="gh">Out[6]: </span><span class="go">psyplot.project.Project([    arr1: 1-dim DataArray of Mesh2_fcvar, with (nMesh2_face)=(2,), Mesh2=-2147483647, time=1951-01-01])</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/docs_triangular_face.png"><img alt="_images/docs_triangular_face.png" src="_images/docs_triangular_face.png" style="width: 4in;" /></a>
+</section>
+<section id="visualization-of-node-and-edge-variables">
+<span id="demo-node"></span><h2>Visualization of node and edge variables<a class="headerlink" href="#visualization-of-node-and-edge-variables" title="Link to this heading"></a></h2>
+<p>As soon as a variable is defined on a node or edge variable, <code class="docutils literal notranslate"><span class="pre">psy-ugrid</span></code>
+computes the dual mesh by deriving the <cite>face-edge-connectivity</cite> and more. We
+implemented a very efficient cython-based algorithm to do so, even for large
+files. The derived polygons for this so-called dual mesh are then used for
+visualizing the data.</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">ds_triangular</span><span class="o">.</span><span class="n">psy</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mesh2_ndvar&quot;</span><span class="p">)</span>
+<span class="gh">Out[7]: </span><span class="go">psyplot.project.Project([    arr2: 1-dim DataArray of Mesh2_ndvar, with (nMesh2_node)=(4,), Mesh2=-2147483647, time=1951-01-01])</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/docs_triangular_node.png"><img alt="_images/docs_triangular_node.png" src="_images/docs_triangular_node.png" style="width: 4in;" /></a>
+<p>And again, this even works out of the box for files, where we have mixed triangular and
+quadriliteral faces:</p>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">ds_flexible</span><span class="o">.</span><span class="n">psy</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">plot2d</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mesh2_ndvar&quot;</span><span class="p">)</span>
+<span class="gh">Out[8]: </span><span class="go">psyplot.project.Project([    arr3: 1-dim DataArray of Mesh2_ndvar, with (nMesh2_node)=(5,), Mesh2=-2147483647, time=1951-01-01])</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/docs_triangular_node.png"><img alt="_images/docs_triangular_node.png" src="_images/docs_triangular_node.png" style="width: 4in;" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <!--
+SPDX-FileCopyrightText: 2024 Helmholtz-Zentrum hereon GmbH
+
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
+<footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 Helmholtz-Zentrum hereon GmbH.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+
+<div class="footer">
+    <span class="creativecommons">
+    <a href="https://creativecommons.org/licenses/by/4.0/" >
+    <img style="height: 1.5em;" src="_static/license_logo.png" border="0" alt="Creative Commons License"/>
+    </a>
+    This documentation is licensed under
+    <a href="https://creativecommons.org/licenses/by/4.0/">
+    CC-BY-4.0
+    </a>
+    </span>
+</div>
+
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
