@@ -27,6 +27,7 @@ Welcome to psy-ugrid's documentation!
    :caption: Contents:
 
    installation
+   demo
    api
    contributing
 

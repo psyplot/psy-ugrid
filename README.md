@@ -44,7 +44,7 @@ More detailed installation instructions my be found in the [docs][docs].
 
 
 [source code]: https://codebase.helmholtz.cloud/psyplot/psy-ugrid
-[docs]: https://psyplot.github.io/psy-ugridinstallation.html
+[docs]: https://psyplot.github.io/psy-ugrid/installation.html
 
 ## Usage
 
@@ -52,6 +52,8 @@ Once installed, the `UGRIDDecoder` is automatically registered within the
 `psyplot` framework. Once you open a UGRID-conform file, the `UGRIDDecoder`
 will be automatically used for all variables in the netCDF-file that define a
 `mesh`. You do not have to do anything extra.
+
+A :ref:`demo` on how this package works can be found [in the docs][docs].
 
 
 ## Technical note
@@ -91,4 +93,4 @@ If you have any questions on this, please have a look into the
 [contributing guide][contributing] or contact the maintainers of
 `psy-ugrid`.
 
-[contributing]: https://psyplot.github.io/psy-ugridcontributing.html
+[contributing]: https://psyplot.github.io/psy-ugrid/contributing.html

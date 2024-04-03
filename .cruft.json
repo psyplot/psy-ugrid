@@ -24,7 +24,7 @@
       "package_folder": "psy_ugrid",
       "project_short_description": "A psyplot plugin for decoding unstructured grids following the UGRID conventions",
       "keywords": "visualization,psyplot,ugrid,unstructured,dual mesh,native,cython",
-      "documentation_url": "https://psyplot.github.io/psy-ugrid",
+      "documentation_url": "https://psyplot.github.io/psy-ugrid/",
       "use_markdown_for_documentation": "no",
       "ci_build_stage": "yes",
       "use_cibuildwheel": "yes",

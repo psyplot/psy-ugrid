@@ -73,6 +73,9 @@ extensions = [
     "autodocsumm",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
+    "matplotlib.sphinxext.plot_directive",
+    "IPython.sphinxext.ipython_console_highlighting",
+    "IPython.sphinxext.ipython_directive",
 ]
 
 
@@ -90,6 +93,8 @@ autodoc_default_options = {
     "members": True,
     "autosummary": True,
 }
+
+ipython_savefig_dir = "_static"
 
 
 # -- Options for HTML output -------------------------------------------------

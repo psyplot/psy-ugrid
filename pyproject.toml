@@ -51,7 +51,7 @@ dependencies = [
 
 [project.urls]
 Homepage = 'https://codebase.helmholtz.cloud/psyplot/psy-ugrid'
-Documentation = "https://psyplot.github.io/psy-ugrid"
+Documentation = "https://psyplot.github.io/psy-ugrid/"
 Source = "https://codebase.helmholtz.cloud/psyplot/psy-ugrid"
 Tracker = "https://codebase.helmholtz.cloud/psyplot/psy-ugrid/issues/"
 
@@ -78,6 +78,11 @@ docs = [
     "sphinx-rtd-theme",
     "hereon-netcdf-sphinxext",
     "sphinx-design",
+    "dask",
+    "netCDF4",
+    "psy-simple>=1.5.0",
+    "ipython",
+    "pickleshare",  # required for IPythons savefig
 
 ]
 dev = [
