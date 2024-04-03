@@ -40,3 +40,5 @@ registered within the ``psyplot`` framework. Once you open a UGRID-conform
 file, the :class:`~psy_ugrid.decoder.UGridDecoder` will be automatically used
 for all variables in the netCDF-file that define a `mesh`. You do not have to
 do anything extra.
+
+See the :ref:`demo` section for a quick usage example and demonstration.
