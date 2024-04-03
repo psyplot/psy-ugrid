@@ -1,0 +1,106 @@
+# SPDX-FileCopyrightText: 2024 Helmholtz-Zentrum hereon GmbH
+#
+# SPDX-License-Identifier: CC0-1.0
+
+# include script for building the python package in gitlab CI
+
+build-package-sdist:
+  stage: build
+  script:
+    - pip install build twine
+    - USE_CYTHON=true make dist
+    - twine check dist/*
+  artifacts:
+    name: python-artifacts
+    paths:
+      - "dist/*"
+      - "psy_ugrid/*.c"
+    expire_in: 7 days
+
+build-package-linux:
+  stage: build
+  image: docker:20.10
+  tags:
+    - dind
+  services:
+    - docker:20.10-dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  before_script:
+    - apk add --update --no-cache python3 py3-pip
+    - pip install build Cython twine cibuildwheel==2.16.5
+  script:
+    # build the wheel
+    - cibuildwheel --output-dir wheelhouse
+  artifacts:
+    name: python-artifacts
+    paths:
+      - "wheelhouse/"
+    expire_in: 7 days
+  needs:
+    - build-package-sdist
+
+build-package-windows:
+  stage: build
+  tags:
+    - windows-docker
+  image: winamd64/python:3
+  before_script:
+    # install build tools for windows
+    # following https://learn.microsoft.com/de-de/visualstudio/install/build-tools-container?view=vs-2022
+    # and install VCTools, see
+    # https://learn.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools
+    - |
+      set-content $env:public\install_buildtools.cmd -Value @'
+      curl -SL --output vs_buildtools.exe https://aka.ms/vs/17/release/vs_buildtools.exe
+      start /w vs_buildtools.exe --quiet --wait --norestart --nocache^
+          --installPath "%ProgramFiles(x86)%\Microsoft Visual Studio\2022\BuildTools"^
+          --add Microsoft.VisualStudio.Workload.VCTools^
+          --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64^
+          --add Microsoft.VisualStudio.Component.Windows11SDK.22621
+      del /q vs_buildtools.exe
+      '@
+
+      write-host "Installing build tools"
+      CMD.EXE /C $env:public\install_buildtools.cmd
+    # install git and add it to the PATH
+    - |
+      Invoke-WebRequest 'https://github.com/git-for-windows/git/releases/download/v2.43.0.windows.1/MinGit-2.43.0-64-bit.zip' -OutFile MinGit.zip
+
+      Expand-Archive MinGit.zip -DestinationPath MinGit;
+      $env:PATH = $env:PATH + ';' + $env:CI_PROJECT_DIR + '\MinGit\cmd\;' + $env:CI_PROJECT_DIR + '\MinGit\cmd';
+      Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment\' -Name Path -Value $env:PATH
+    - python -m pip install cibuildwheel==2.16.5
+  script:
+    - python -m cibuildwheel --output-dir wheelhouse --platform windows
+  artifacts:
+    paths:
+      - wheelhouse/
+  needs:
+    - build-package-sdist
+  # versioneer is not able to get the version correctly on windows when there
+  # has not yet been a tag. Once we create a tag, we can remove this two
+  # restrictions here
+  only:
+    - tags
+  except:
+    - branches
+
+build-package-macos:
+  stage: build
+  tags:
+    - macos-medium-m1
+  image: hcr.helmholtz.cloud/ci/macos/ventura-base:latest
+  before_script:
+    - brew install python@3.10
+    - brew link --overwrite python@3.10
+    - python3 -m pip install cibuildwheel==2.16.5
+  script:
+    - python3 -m cibuildwheel --output-dir wheelhouse --platform macos
+  artifacts:
+    paths:
+      - wheelhouse/
+  needs:
+    - build-package-sdist

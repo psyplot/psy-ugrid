@@ -4,6 +4,8 @@
 
 image: python:3.9
 
+include: "/ci/.gitlab-ci.build.yml"
+
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
@@ -13,26 +15,18 @@ cache:
 
 before_script:
   - python -m pip install -U pip
-build-package:
-  stage: build
-  script:
-    - pip install build twine
-    - USE_CYTHON=true make dist
-    - twine check dist/*
-  artifacts:
-    name: python-artifacts
-    paths:
-      - "dist/*"
-      - "psy_ugrid/*.c"
-    expire_in: 7 days
 
 test-package:
   stage: test
   script:
     - pip install twine
-    - twine check dist/*
+    - twine check dist/* wheelhouse/*
   needs:
-    - build-package
+    - job: build-package-sdist
+    - job: build-package-linux
+    - job: build-package-windows
+      optional: true
+    - job: build-package-macos
 
 test:
   stage: test
@@ -52,7 +46,7 @@ test:
     expire_in: 30 days
   coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
   needs:
-    - build-package
+    - build-package-sdist
 
 test-docs:
   stage: test
@@ -64,21 +58,26 @@ test-docs:
     paths:
     - docs/_build
   needs:
-    - build-package
+    - build-package-sdist
 
 
 deploy-package:
   stage: deploy
   needs:
-    - build-package
-    - test-package
-    - test-docs
-    - test
+    - job: build-package-sdist
+    - job: build-package-linux
+    - job: build-package-windows
+      optional: true
+    - job: build-package-macos
+    - job: test-package
+    - job: test-docs
+    - job: test
   only:
-    - main
+    # we need at least one existing tag to deploy from branches
+    - tags
   script:
     - pip install twine
-    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/* wheelhouse/*
 
 
 
