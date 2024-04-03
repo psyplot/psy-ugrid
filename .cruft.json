@@ -1,6 +1,6 @@
 {
   "template": "https://codebase.helmholtz.cloud/psyplot/psyplot-plugin-template.git",
-  "commit": "63fa8a2b3c1bab8e173cb91b9fca045639a243dd",
+  "commit": "29cb57a8afb5bffbbf22480d87d0d3c82aeccf4a",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -27,11 +27,13 @@
       "documentation_url": "https://psyplot.github.io/psy-ugrid",
       "use_markdown_for_documentation": "no",
       "ci_build_stage": "yes",
+      "use_cibuildwheel": "yes",
       "ci_matrix": "pipenv",
       "use_pytest_xdist": "yes",
       "requires_gui": "no",
       "deploy_package_in_ci": "yes",
       "deploy_pages_in_ci": "git-push",
+      "__ci_build_stage": "yes",
       "_extensions": [
         "local_extensions.UnderlinedExtension"
       ],

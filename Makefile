@@ -81,13 +81,7 @@ quick-test: ## run tests quickly with the default Python
 	python -m pytest
 
 pipenv-test: ## run tox
-	pipenv run mypy psy_ugrid
-	pipenv run isort --check psy_ugrid
-	pipenv run black --line-length 79 --check psy_ugrid
-	pipenv run flake8 psy_ugrid
-	pipenv run pytest -v --cov=psy_ugrid -x -n $(NPROCS)
-	pipenv run reuse lint
-	pipenv run cffconvert --validate
+	pipenv run tox --current-env
 
 test: ## run tox
 	tox
@@ -114,7 +108,7 @@ release: dist ## package and upload a release
 	twine upload dist/*
 
 dist: clean ## builds source and wheel package
-	USE_CYTHON=true python -m build
+	python -m build --sdist
 	ls -l dist
 
 install: clean ## install the package to the active Python's site-packages

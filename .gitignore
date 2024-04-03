@@ -29,6 +29,11 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+wheelhouse/
+
+# git-for-windows (downloaded in CI)
+MinGit/
+MinGit.zip
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
