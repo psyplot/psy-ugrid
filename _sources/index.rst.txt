@@ -90,9 +90,8 @@ Indices and tables
    :target: https://codebase.helmholtz.cloud/psyplot/psy-ugrid/-/graphs/main/charts
 .. |Latest Release| image:: https://codebase.helmholtz.cloud/psyplot/psy-ugrid/-/badges/release.svg
    :target: https://codebase.helmholtz.cloud/psyplot/psy-ugrid
-.. .. TODO: uncomment the following line when the package is published at https://pypi.org
-.. .. |PyPI version| image:: https://img.shields.io/pypi/v/psy-ugrid.svg
-..    :target: https://pypi.python.org/pypi/psy-ugrid/
+.. |PyPI version| image:: https://img.shields.io/pypi/v/psy-ugrid.svg
+   :target: https://pypi.python.org/pypi/psy-ugrid/
 .. |Code style: black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
    :target: https://github.com/psf/black
 .. |Imports: isort| image:: https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336
@@ -101,6 +100,5 @@ Indices and tables
    :target: https://www.python.org/dev/peps/pep-0008/
 .. |Checked with mypy| image:: http://www.mypy-lang.org/static/mypy_badge.svg
    :target: http://mypy-lang.org/
-.. TODO: uncomment the following line when the package is registered at https://api.reuse.software
-.. .. |REUSE status| image:: https://api.reuse.software/badge/codebase.helmholtz.cloud/psyplot/psy-ugrid
-..    :target: https://api.reuse.software/info/codebase.helmholtz.cloud/psyplot/psy-ugrid
+.. |REUSE status| image:: https://api.reuse.software/badge/codebase.helmholtz.cloud/psyplot/psy-ugrid
+   :target: https://api.reuse.software/info/codebase.helmholtz.cloud/psyplot/psy-ugrid
