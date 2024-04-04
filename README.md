@@ -53,7 +53,7 @@ Once installed, the `UGRIDDecoder` is automatically registered within the
 will be automatically used for all variables in the netCDF-file that define a
 `mesh`. You do not have to do anything extra.
 
-A :ref:`demo` on how this package works can be found [in the docs][docs].
+A demo on how this package works can be found [in the docs][docs].
 
 
 ## Technical note
